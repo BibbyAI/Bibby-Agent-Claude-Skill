@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "Bibby-agent-claude-skill",
-      "source": "./skills/bibby-latex.skill",
+      "source": "./skills/bibby-latex",
       "description": "AI agent to write your research papers 10x faster"
     }
   ]
