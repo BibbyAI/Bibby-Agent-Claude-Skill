@@ -1,0 +1,98 @@
+% ============================================================
+% Bibby AI — Default Article Template (pdflatex)
+% Compile: pdflatex -> biber -> pdflatex -> pdflatex
+% ============================================================
+\documentclass[11pt]{article}
+
+% --- Core ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+
+% --- Math ---
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% --- Floats ---
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{siunitx}
+
+% --- Bibliography ---
+\usepackage[backend=biber, style=numeric-comp, sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+% --- Links & refs (order matters: hyperref then cleveref, both last) ---
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[capitalize]{cleveref}
+
+% --- Theorem environments ---
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% --- Semantic macros ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\given}{\mid}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% --- Metadata ---
+\title{Paper Title}
+\author{First Author\thanks{Affiliation, email} \and Second Author}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+One paragraph. Problem, approach, key result, significance.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+Motivation and contributions.
+As shown in \cref{sec:method}, our approach improves on prior work~\cite{examplekey2024}.
+
+\section{Method}\label{sec:method}
+Given data $x \in \R^d$, we minimize
+\begin{equation}\label{eq:objective}
+  \theta^\star = \argmin_{\theta} \; \E\!\left[ \mathcal{L}(x; \theta) \right].
+\end{equation}
+
+\section{Experiments}\label{sec:experiments}
+See \cref{tab:results} and \cref{eq:objective}.
+
+\begin{table}[t]
+  \centering
+  \caption{Main results.}
+  \label{tab:results}
+  \begin{tabular}{lcc}
+    \toprule
+    Method & Metric A & Metric B \\
+    \midrule
+    Baseline & 0.0 & 0.0 \\
+    Ours     & \textbf{0.0} & \textbf{0.0} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Conclusion}\label{sec:conclusion}
+Summary and future work.
+
+\printbibliography
+
+\end{document}
